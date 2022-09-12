@@ -51,14 +51,14 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers(OPTIONS, "/users").anonymous()
                 .antMatchers(POST, "/users").anonymous()
                 .antMatchers("/users/*").permitAll()
+                .antMatchers(OPTIONS, "/abcd").anonymous()
+                .antMatchers(POST, "/abcd").anonymous()
+                .antMatchers("/abcd/*").permitAll()
                 .antMatchers(OPTIONS, "/login").anonymous()
                 .antMatchers(POST, "/login").anonymous()
                 .antMatchers(PUT, "/login").anonymous()
-                // .antMatchers(OPTIONS,"/contacts").permitAll()
-                // .antMatchers("/contacts/*").permitAll()
-                // .antMatchers(OPTIONS,"/item").permitAll()
-                // .antMatchers("/item/*").permitAll()
-                // .antMatchers(POST, "/contacts").anonymous()
+                .antMatchers(OPTIONS, "/**").anonymous()
+        
 
 
                 .anyRequest().authenticated();

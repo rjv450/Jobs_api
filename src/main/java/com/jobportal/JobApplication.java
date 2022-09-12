@@ -7,7 +7,7 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication
-public class ContactsApplication {
+public class JobApplication {
 
     @Bean
     public WebMvcConfigurer webMvcConfigurer() {
@@ -20,6 +20,6 @@ public class ContactsApplication {
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(ContactsApplication.class, args);
+        SpringApplication.run(JobApplication.class, args);
     }
 }

@@ -1,29 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.jobportal.entity;
 
 import java.util.Date;
 import java.util.Objects;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.jobportal.form.UserForm;
 
-/**
- *
- * @author nirmal
- */
 @Entity
-public class User {
 
+public class User {
     public static enum Status {
         INACTIVE((byte) 0),
         ACTIVE((byte) 1);
@@ -35,19 +26,34 @@ public class User {
         }
     }
 
+    public static enum UsersRole {
+        ADMIN((byte) 1),
+        USER((byte) 2),
+        HR((byte) 3);
+
+        public final byte value;
+
+        private UsersRole(byte value) {
+            this.value = value;
+        }
+    }
+
     @Id
+
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer userId;
     private String name;
     private String email;
     private String password;
     private byte status;
+    private byte usersRole;
     @Temporal(TemporalType.TIMESTAMP)
     private Date createDate;
     @Temporal(TemporalType.TIMESTAMP)
     private Date updateDate;
 
     public User() {
+
     }
 
     public User(Integer userId) {
@@ -58,19 +64,19 @@ public class User {
         this.name = name;
         this.email = email;
         this.password = password;
-
         this.status = Status.ACTIVE.value;
-
         Date dt = new Date();
         this.createDate = dt;
         this.updateDate = dt;
     }
+
     public User update(UserForm form) {
         this.name = form.getName();
         this.email = form.getEmail();
         Date dt = new Date();
         this.updateDate = dt;
         return this;
+
     }
 
     public Integer getUserId() {
@@ -113,6 +119,14 @@ public class User {
         this.status = status;
     }
 
+    public byte getUsersRole() {
+        return usersRole;
+    }
+
+    public void setUsersRole(byte usersRole) {
+        this.usersRole = usersRole;
+    }
+
     public Date getCreateDate() {
         return createDate;
     }
@@ -147,6 +161,9 @@ public class User {
 
     @Override
     public String toString() {
-        return "com.innovaturelabs.training.contacts.entity.User[ userId=" + userId + " ]";
+        return "User [createDate=" + createDate + ", email=" + email + ", name=" + name + ", password=" + password
+                + ", status=" + status + ", updateDate=" + updateDate + ", userId=" + userId + ", usersRole="
+                + usersRole + "]";
     }
+
 }
