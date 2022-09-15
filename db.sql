@@ -14,23 +14,19 @@ CREATE TABLE `user` (
   UNIQUE KEY `unique_email` (`email`)
 ) ENGINE = InnoDB;
 
-CREATE TABLE `contact` (
-  `contact_id` INT NOT NULL AUTO_INCREMENT,
+CREATE TABLE `job` (
+  `job_id` INT NOT NULL AUTO_INCREMENT,
   `user_id` INT NOT NULL,
-  `first_name` VARCHAR(30) NOT NULL,
-  `last_name` VARCHAR(30) NULL,
-  `nick_name` VARCHAR(30) NULL,
-  `dob` DATE NULL,
-  `address` VARCHAR(200) NULL,
-  `city` VARCHAR(50) NULL,
-  `state` VARCHAR(50) NULL,
-  `country` VARCHAR(50) NULL,
-  `zip_code` VARCHAR(8) NULL,
+  `job_title` VARCHAR(30) NOT NULL,
+  `job_desc` VARCHAR(30) NULL,
+  `last_date_submit` DATE NULL,
+  `skills` VARCHAR(200) NULL,
+  `qualification` VARCHAR(50) NULL,
   `status` TINYINT NOT NULL,
   `create_date` DATETIME NOT NULL,
   `update_date` DATETIME NOT NULL,
-  PRIMARY KEY (`contact_id`),
-  CONSTRAINT `fk_contact_ref_user_by_user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`)
+  PRIMARY KEY (`job_id`),
+  CONSTRAINT `fk_job_ref_user_by_user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`)
 ) ENGINE = InnoDB;
 
 CREATE TABLE `item`(

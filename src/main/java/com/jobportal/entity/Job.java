@@ -35,6 +35,9 @@ public class Job {
     private String jobDesc;
     private String skills;
     private String qualification;
+    private Long vacancy;
+
+    @Temporal(TemporalType.DATE)
     private Date lastDateSubmit;
     private byte status;
     @Temporal(TemporalType.TIMESTAMP)
@@ -51,31 +54,42 @@ public class Job {
     public Job(Integer jobId) {
         this.jobId = jobId;
     }
-public Job(JobForm form,Integer userId){
-    this.user=new User(userId);
-    this.jobTitle=form.getJobTitle();
-    this.jobDesc=form.getJobDesc();
-    this.skills=form.getSkills();
-    this.qualification=form.getQualification();
-    this.lastDateSubmit=form.getLastDateSubmit();
-    this.status=Status.ISALIVE.value;
-    Date dt =new Date();
-    this.createDate=dt;
-    this.updateDate=dt;
-}
+
+    public Job(JobForm form, Integer userId) {
+        this.user = new User(userId);
+        this.jobTitle = form.getJobTitle();
+        this.jobDesc = form.getJobDesc();
+        this.skills = form.getSkills();
+        this.qualification = form.getQualification();
+        this.vacancy=form.getVacancy();
+        this.lastDateSubmit = form.getLastDateSubmit();
+        this.status = Status.ISALIVE.value;
+        Date dt = new Date();
+        this.createDate = dt;
+        this.updateDate = dt;
+    }
 
     public Job update(JobForm form) {
-    
+
         this.jobTitle = form.getJobTitle();
-        this.jobDesc=form.getJobDesc();
-        this.skills=form.getSkills();
-        this.qualification=form.getQualification();
-        this.lastDateSubmit=form.getLastDateSubmit();
-        this.status=Status.ISALIVE.value;
+        this.jobDesc = form.getJobDesc();
+        this.skills = form.getSkills();
+        this.qualification = form.getQualification();
+        this.vacancy=form.getVacancy();
+        this.lastDateSubmit = form.getLastDateSubmit();
+        this.status = Status.ISALIVE.value;
         Date dt = new Date();
         this.createDate = dt;
         this.updateDate = dt;
         return this;
+    }
+
+    public Long getVacancy() {
+        return vacancy;
+    }
+
+    public void setVacancy(Long vacancy) {
+        this.vacancy = vacancy;
     }
 
     public Integer getJobId() {
@@ -177,11 +191,8 @@ public Job(JobForm form,Integer userId){
     public String toString() {
         return "Job [createDate=" + createDate + ", jobDesc=" + jobDesc + ", jobId=" + jobId + ", jobTitle=" + jobTitle
                 + ", lastDateSubmit=" + lastDateSubmit + ", qualification=" + qualification + ", skills=" + skills
-                + ", status=" + status + ", updateDate=" + updateDate + ", user=" + user + "]";
+                + ", status=" + status + ", updateDate=" + updateDate + ", user=" + user + ", vacancy=" + vacancy + "]";
     }
-
- 
-
 
 
 

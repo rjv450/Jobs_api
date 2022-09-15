@@ -2,6 +2,7 @@
 package com.jobportal.view;
 
 import com.jobportal.entity.Job;
+import com.jobportal.entity.User;
 import com.jobportal.json.*;
 import java.util.Date;
 
@@ -12,6 +13,8 @@ public class jobListView {
     private final String jobDesc;
     private final String skills;
     private final String qualification;
+    private final Long vacancy;
+
     private final Date lastDateSubmit;
     private final byte status;
     @Json.DateTimeFormat
@@ -19,31 +22,35 @@ public class jobListView {
     @Json.DateTimeFormat
     private final Date updateDate;
 
-    public jobListView(int jobId, String jobTitle, String jobDesc, String skills, String qualification,
-            Date lastDateSubmit,
-            byte status, Date createDate, Date updateDate) {
+    public jobListView(int jobId, String jobTitle, String jobDesc, String skills, String qualification, Long vacancy,
+            Date lastDateSubmit, byte status, Date createDate, Date updateDate) {
         this.jobId = jobId;
         this.jobTitle = jobTitle;
         this.jobDesc = jobDesc;
         this.skills = skills;
         this.qualification = qualification;
+        this.vacancy = vacancy;
         this.lastDateSubmit = lastDateSubmit;
         this.status = status;
         this.createDate = createDate;
         this.updateDate = updateDate;
+
     }
 
-    public jobListView(Job job){
-        this.jobId=job.getJobId();
-        this.jobTitle=job.getJobTitle();
-        this.jobDesc=job.getJobDesc();
-        this.skills=job.getSkills();
-        this.qualification=job.getQualification();
-        this.lastDateSubmit=job.getLastDateSubmit();
-        this.status=job.getStatus();
-        this.createDate=job.getCreateDate();
-        this.updateDate=job.getUpdateDate();
+    public jobListView(Job job) {
+        this.jobId = job.getJobId();
+        this.jobTitle = job.getJobTitle();
+        this.jobDesc = job.getJobDesc();
+        this.skills = job.getSkills();
+        this.qualification = job.getQualification();
+        this.vacancy = job.getVacancy();
+        this.lastDateSubmit = job.getLastDateSubmit();
+        this.status = job.getStatus();
+        this.createDate = job.getCreateDate();
+        this.updateDate = job.getUpdateDate();
+
     }
+
     public int getJobId() {
         return jobId;
     }
@@ -80,7 +87,8 @@ public class jobListView {
         return updateDate;
     }
 
-
-
+    public Long getVacancy() {
+        return vacancy;
+    }
 
 }

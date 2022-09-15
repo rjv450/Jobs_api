@@ -18,7 +18,7 @@ import org.springframework.security.web.authentication.preauth.AbstractPreAuthen
  */
 public class AccessTokenProcessingFilter extends AbstractPreAuthenticatedProcessingFilter {
 
-    private static final Pattern AUTH_PATTERN = Pattern.compile("Contacts ([0-9a-f]+)");
+    private static final Pattern AUTH_PATTERN = Pattern.compile("Jobportal ([0-9a-f]+)");
 
     @Override
     protected Object getPreAuthenticatedPrincipal(HttpServletRequest request) {

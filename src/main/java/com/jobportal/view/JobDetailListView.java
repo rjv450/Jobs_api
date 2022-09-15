@@ -10,6 +10,7 @@ public class JobDetailListView extends jobListView {
         job.getJobDesc(),
         job.getQualification(),
         job.getSkills(),
+        job.getVacancy(),
         job.getLastDateSubmit(),
         job.getStatus(),
         job.getCreateDate(),

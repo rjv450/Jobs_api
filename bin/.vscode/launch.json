@@ -2,11 +2,11 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Spring Boot-ContactsApplication<contacts>",
+            "name": "Spring Boot-Jobportal<jobportal>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
             "mainClass": "com.innovaturelabs.training.contacts.ContactsApplication",
-            "projectName": "contacts",
+            "projectName": "job portal",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
         }

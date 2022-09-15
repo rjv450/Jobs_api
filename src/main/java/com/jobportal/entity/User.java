@@ -65,6 +65,7 @@ public class User {
         this.email = email;
         this.password = password;
         this.status = Status.ACTIVE.value;
+        this.usersRole=UsersRole.ADMIN.value;
         Date dt = new Date();
         this.createDate = dt;
         this.updateDate = dt;
